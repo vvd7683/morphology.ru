@@ -82,11 +82,11 @@ namespace MorphologyRU {
 		virtual const wstring cBase() { return wstring(); }
 	};
 
-	const wchar_t *const cPrefixes[] = {
+	static MorphologyParser::Morphemes cPrefixes = {
 		L""
 	};
 
-	const wchar_t *const cSuffixes[] = {
+	static MorphologyParser::Morphemes cSuffixes = {
 		L"к",
 		L"ик",
 		L"ек",

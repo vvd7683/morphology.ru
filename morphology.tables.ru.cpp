@@ -11,9 +11,9 @@ const std::wstring &VerbParser::Parse(const std::wstring &cStr) {
 	std::string Temp;
 	std::wregex rx;
 	std::wcmatch match;//TODO: use cVerbReflections
-	for (auto reflection : cVerbReflections) {
+	for (auto &reflection : cVerbReflections) {
 		reflection;
 	}
-	std::regex_search(cStr, rx);
+	std::regex_search(cStr.c_str(), match, rx);
 	return str;
 }

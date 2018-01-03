@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Some yet
+*.ilk
+*sdf
+*.suo
+morphology
+Debug/*
+Release/*
