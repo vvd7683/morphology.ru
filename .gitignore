@@ -35,6 +35,7 @@
 *.ilk
 *sdf
 *.suo
+*.pdb
 morphology
 Debug/*
 Release/*

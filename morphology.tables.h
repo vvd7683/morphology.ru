@@ -10,6 +10,7 @@
 #include <map>
 #include <string>
 
+using namespace std;
 class MorphologyParser
 {
 public:
@@ -21,23 +22,23 @@ public:
 
 		posCount
 	} WordType;
-	typedef const std::vector<std::wstring > Morphemes;
-	typedef std::vector<std::wstring > WordParts;
-	//typedef const std::vector<const std::wstring > WordParts;
-	MorphologyParser() : str(std::wstring()), wtype(posUnknown) {}
-	MorphologyParser(const std::wstring &cStr) : str(std::wstring()), wtype(posUnknown) { Parse(cStr); }
-	virtual const std::wstring &Parse(const std::wstring &);
+	typedef const vector<wstring > Morphemes;
+	typedef vector<wstring > WordParts;
+	//typedef const vector<const wstring > WordParts;
+	MorphologyParser() : str(wstring()), wtype(posUnknown) {}
+	MorphologyParser(const wstring &cStr) : str(wstring()), wtype(posUnknown) { Parse(cStr); }
+	virtual const wstring &Parse(const wstring &);
 	virtual WordParts &cSuffixes() {
 		return Suffixes;
 	}
 	virtual WordParts &cReflections() {
 		return Reflections;
 	}
-	virtual const std::wstring &cWord() { return str; }
-	virtual const std::wstring cBase() = 0;
+	virtual const wstring &cWord() { return str; }
+	virtual const wstring cBase() = 0;
 	const WordType cWordType() { return wtype; }
 protected:
-	std::wstring str;
+	wstring str;
 	WordType wtype;
 	WordParts Suffixes;
 	WordParts Reflections;
@@ -46,7 +47,7 @@ protected:
 class MorphologyNoun
 {
 public:
-/*	MorphologyNounParser(const std::wstring &cStr) {
+/*	MorphologyNounParser(const wstring &cStr) {
 		//
 	}*/
 };
