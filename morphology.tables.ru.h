@@ -13,6 +13,83 @@ namespace MorphologyRU {
 			//TODO: check for characters set, grammar etc
 		}
 	};
+	//Common categories
+	typedef enum {
+		numUnknown = -1,
+
+		numSingle,
+		numMultiple,
+
+		numCount
+	} Number;
+	typedef enum {
+		genUnknown = -1,
+
+		genMasculine,
+		genFeminine,
+		genNeuther,
+
+		genCount
+	} Gender;
+
+	//Noun categories
+	//Permanent
+	typedef enum {
+		declUnknown = -1,
+		declI,
+		declII,
+		declIII,
+		declVar,
+
+		declCount
+	} Declension;
+
+	typedef enum {
+		aUnknown = -1,
+
+		aInanimated,
+		aAnimated,
+
+		aCount
+	} Animation;
+	//Changable
+	typedef enum {
+		caseUnknown = -1,
+		caseNominative, // Именительный
+		caseGenetive, // Родительный
+		caseAccusative, // Винительный
+		caseDative, // Дательный
+		caseInstrumental, // Творительный
+		casePrepositional, // Предложный
+		caseVocative, // Звательный
+		caseLocative, // Местный
+		casePartitive, // Разделительный
+		caseOrdinative, // Счётный
+		caseAblative, // Отложительный
+		caseAbessive, // Лишительный
+		casePartitativeEx, // Количественно-отделительный
+		caseInclusive, // Включительный
+		caseCount
+	} Case;
+	typedef struct {
+		wstring s;
+		Declension _declention;
+		Animation _animation;
+		Gender _gender;
+		Case _case;
+		Number _number;
+	} NounReflection;
+	class Noun
+	{
+	public:
+		Noun() : _declention(declUnknown), _gender(genUnknown), _case(caseUnknown), _number(numUnknown) {}
+		Noun(const wstring &cStr) : _declention(declUnknown), _gender(genUnknown), _case(caseUnknown), _number(numUnknown) {}
+	protected:
+		Declension _declention;
+		Gender _gender;
+		Case _case;
+		Number _number;
+	};
 	//Verb categories
 	//Permanent
 	typedef enum {
@@ -51,23 +128,6 @@ namespace MorphologyRU {
 		persCount
 	} Person;
 
-	typedef enum {
-		numUnknown = -1,
-
-		numSingle,
-		numMultiple,
-
-		numCount
-	} Number;
-	typedef enum {
-		genUnknown = -1,
-
-		genMasculine,
-		genFeminine,
-		genNeuther,
-
-		genCount
-	} Gender;
 	const wstring verbPostfixes[] = { L"ся", L"сь" };
 	typedef struct {
 		wstring s;
@@ -79,68 +139,32 @@ namespace MorphologyRU {
 		Gender gender;
 		wstring example;
 	} VerbReflection;
-	static MorphologyParser::Morphemes cVerbReflections = {
-		//Инфинитив
-		L"ть",//брать
-		L"ти",//идти
-		//Нулевой суффикс беречь, толочь
-		//I лицо ед. число
-		L"ю",//клюю
-		L"у",//тку
-		//I лицо множ. число
-		L"ем",//делаем
-		L"ём",//бьём
-		L"им",//хотим
-		//II лицо ед. число
-		L"ешь",
-		L"ёшь",
-		L"ишь",
-
-		//II лицо множ. число
-		L"ете",
-		L"ёте",
-		L"ите",
-
-		///III лицо ед. число
-		L"ет",//делает
-		L"ёт",//даёт
-		L"ит",//строит
-		///III лицо множ. число
-		L"ют",//кроют
-		L"ут",//врут
-		L"ят",//доят
-		L"ат",//лечат
-
-		L"и",//искали
-		L"а",//смотрела
-		L""
-	};
 	class Verb
 	{
 	public:
-		Verb() : conjugation(conjUnknown), aspect(aspUnknown), tense(tenseUnknown), person(persUnknown) {}
-		Verb(const wstring &cStr) : conjugation(conjUnknown), aspect(aspUnknown), tense(tenseUnknown), person(persUnknown) {}
+		Verb() : _conjugation(conjUnknown), _aspect(aspUnknown), _tense(tenseUnknown), _person(persUnknown) {}
+		Verb(const wstring &cStr) : _conjugation(conjUnknown), _aspect(aspUnknown), _tense(tenseUnknown), _person(persUnknown) {}
 		static wstring getPostfixesRegexp(const wstring delimiter = L"|");
 		static wstring getReflectionsRegexp(const wstring delimiter = L"|");
 		const Tense getTense() {
-			return tense;
+			return _tense;
 		}
 		const Conjugation getConjugation() {
-			return conjugation;
+			return _conjugation;
 		}
 		const Person getPerson() {
-			return person;
+			return _person;
 		}
 
 		wstring getRegexp() {
 			return wstring();
 		}
 	protected:
-		Conjugation conjugation;
-		Aspect aspect;
+		Conjugation _conjugation;
+		Aspect _aspect;
 
-		Tense tense;
-		Person person;
+		Tense _tense;
+		Person _person;
 	};
 
 	class VerbParser : public Parser, public Verb

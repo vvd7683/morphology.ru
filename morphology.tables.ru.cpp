@@ -2,6 +2,140 @@
 
 using namespace MorphologyRU;
 
+static const NounReflection nounReflections[] = {
+		//Declension I
+		{
+			wstring(L"а"), declI, aUnknown, genMasculine, caseNominative, numSingle
+		},
+		{
+			wstring(L"а"), declI, aUnknown, genFeminine, caseNominative, numSingle
+		},
+		{
+			wstring(L"ы"), declI, aUnknown, genMasculine, caseGenetive, numSingle
+		},
+		{
+			wstring(L"ы"), declI, aUnknown, genFeminine, caseGenetive, numSingle
+		},
+		{
+			wstring(L"у"), declI, aUnknown, genMasculine, caseAccusative, numSingle
+		},
+		{
+			wstring(L"у"), declI, aUnknown, genFeminine, caseAccusative, numSingle
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genMasculine, caseDative, numSingle
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genFeminine, caseDative, numSingle
+		},
+		{
+			wstring(L"ой"), declI, aUnknown, genMasculine, caseInstrumental, numSingle
+		},
+		{
+			wstring(L"ой"), declI, aUnknown, genFeminine, caseInstrumental, numSingle
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genMasculine, casePrepositional, numSingle
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genFeminine, casePrepositional, numSingle
+		},
+
+
+		{
+			wstring(L"ы"), declI, aUnknown, genMasculine, caseNominative, numMultiple
+		},
+		{
+			wstring(L"ы"), declI, aUnknown, genFeminine, caseNominative, numMultiple
+		},
+		{
+			wstring(), declI, aUnknown, genMasculine, caseGenetive, numMultiple
+		},
+		{
+			wstring(), declI, aUnknown, genFeminine, caseGenetive, numMultiple
+		},
+		{
+			wstring(), declI, aAnimated, genMasculine, caseAccusative, numMultiple
+		},
+		{
+			wstring(), declI, aAnimated, genFeminine, caseAccusative, numMultiple
+		},
+		{
+			wstring(L"ы"), declI, aInanimated, genMasculine, caseAccusative, numMultiple
+		},
+		{
+			wstring(L"ы"), declI, aInanimated, genFeminine, caseAccusative, numMultiple
+		},
+		{
+			wstring(L"ам"), declI, aUnknown, genMasculine, caseDative, numMultiple
+		},
+		{
+			wstring(L"ам"), declI, aUnknown, genFeminine, caseDative, numMultiple
+		},
+		{
+			wstring(L"ами"), declI, aUnknown, genMasculine, caseInstrumental, numMultiple
+		},
+		{
+			wstring(L"ами"), declI, aUnknown, genFeminine, caseInstrumental, numMultiple
+		},
+		{
+			wstring(L"ах"), declI, aUnknown, genMasculine, casePrepositional, numMultiple
+		},
+		{
+			wstring(L"ах"), declI, aUnknown, genFeminine, casePrepositional, numMultiple
+		},
+		//Declension II
+		{
+			wstring(), declI, aUnknown, genMasculine, caseNominative, numSingle
+		},
+		{
+			wstring(L"о"), declI, aInanimated, genNeuther, caseNominative, numSingle
+		},
+		{
+			wstring(L"е"), declI, aInanimated, genNeuther, caseNominative, numSingle
+		},
+
+		//Declension various
+		{
+			wstring(L"я"), declVar, aInanimated, genNeuther, caseNominative, numSingle
+		},
+		{
+			wstring(L"и"), declVar, aInanimated, genNeuther, caseGenetive, numSingle
+		},
+		{
+			wstring(L"я"), declVar, aInanimated, genNeuther, caseAccusative, numSingle
+		},
+		{
+			wstring(L"и"), declVar, aInanimated, genNeuther, caseDative, numSingle
+		},
+		{
+			wstring(L"ем"), declVar, aInanimated, genNeuther, caseInstrumental, numSingle
+		},
+		{
+			wstring(L"и"), declVar, aInanimated, genNeuther, casePrepositional, numSingle
+		},
+
+
+		{
+			wstring(L"а"), declVar, aInanimated, genNeuther, caseNominative, numMultiple
+		},
+		{
+			wstring(L"ён"), declVar, aInanimated, genNeuther, caseGenetive, numMultiple
+		},
+		{
+			wstring(L"а"), declVar, aInanimated, genNeuther, caseAccusative, numMultiple
+		},
+		{
+			wstring(L"ам"), declVar, aInanimated, genNeuther, caseDative, numMultiple
+		},
+		{
+			wstring(L"ами"), declVar, aInanimated, genNeuther, caseInstrumental, numMultiple
+		},
+		{
+			wstring(L"ах"), declVar, aInanimated, genNeuther, casePrepositional, numMultiple
+		}
+};
+
 static const VerbReflection verbReflections[] = {
 		{
 			wstring(L"ть"), conjUnknown, aspUnknown, tenseUnknown, persUnknown, numUnknown, genUnknown, wstring(L"брать")
@@ -181,11 +315,9 @@ VerbParser::VerbParser(const std::wstring &cStr) : Parser(cStr) {
 const std::wstring &VerbParser::Parse(const std::wstring &cStr) {
 	str = cStr;
 	std::wregex rx;
-	std::wcmatch match;//TODO: use cVerbReflections
-	getReflectionsRegexp() + getPostfixesRegexp();
-	for (auto &reflection : verbReflections) {
-		reflection.s;
-	}
+	std::wcmatch match;
+	const wstring cReflectionsRegexp = getReflectionsRegexp();
+	const wstring cPostfixesRegexp = getPostfixesRegexp();
 	std::regex_search(cStr.c_str(), match, rx);
 	return str;
 }
