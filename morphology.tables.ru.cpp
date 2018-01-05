@@ -5,134 +5,239 @@ using namespace MorphologyRU;
 static const NounReflection nounReflections[] = {
 		//Declension I
 		{
-			wstring(L"а"), declI, aUnknown, genMasculine, caseNominative, numSingle
+			wstring(L"а"), declI, aUnknown, genMasculine, caseNominative, numSingle, L"староста"
 		},
 		{
-			wstring(L"а"), declI, aUnknown, genFeminine, caseNominative, numSingle
+			wstring(L"а"), declI, aUnknown, genFeminine, caseNominative, numSingle, L"глухота"
 		},
 		{
-			wstring(L"ы"), declI, aUnknown, genMasculine, caseGenetive, numSingle
+			wstring(L"ы"), declI, aUnknown, genMasculine, caseGenetive, numSingle, L"старосты"
 		},
 		{
-			wstring(L"ы"), declI, aUnknown, genFeminine, caseGenetive, numSingle
+			wstring(L"ы"), declI, aUnknown, genFeminine, caseGenetive, numSingle, L"глухоты"
 		},
 		{
-			wstring(L"у"), declI, aUnknown, genMasculine, caseAccusative, numSingle
+			wstring(L"и"), declI, aUnknown, genMasculine, caseGenetive, numSingle, L"дедушки"
 		},
 		{
-			wstring(L"у"), declI, aUnknown, genFeminine, caseAccusative, numSingle
+			wstring(L"и"), declI, aUnknown, genFeminine, caseGenetive, numSingle, L"кошки"
 		},
 		{
-			wstring(L"е"), declI, aUnknown, genMasculine, caseDative, numSingle
+			wstring(L"у"), declI, aUnknown, genMasculine, caseAccusative, numSingle, L"дедушку"
 		},
 		{
-			wstring(L"е"), declI, aUnknown, genFeminine, caseDative, numSingle
+			wstring(L"у"), declI, aUnknown, genFeminine, caseAccusative, numSingle, L"кошку"
 		},
 		{
-			wstring(L"ой"), declI, aUnknown, genMasculine, caseInstrumental, numSingle
+			wstring(L"е"), declI, aUnknown, genMasculine, caseDative, numSingle, L"воеводе"
 		},
 		{
-			wstring(L"ой"), declI, aUnknown, genFeminine, caseInstrumental, numSingle
+			wstring(L"е"), declI, aUnknown, genFeminine, caseDative, numSingle, L"подводе"
 		},
 		{
-			wstring(L"е"), declI, aUnknown, genMasculine, casePrepositional, numSingle
+			wstring(L"ой"), declI, aUnknown, genMasculine, caseInstrumental, numSingle, L"дедушкой"
 		},
 		{
-			wstring(L"е"), declI, aUnknown, genFeminine, casePrepositional, numSingle
+			wstring(L"ой"), declI, aUnknown, genFeminine, caseInstrumental, numSingle, L"подводой"
+		},
+		{
+			wstring(L"ей"), declI, aUnknown, genMasculine, caseInstrumental, numSingle, L"<no sample>" 
+		},
+		{
+			wstring(L"ей"), declI, aUnknown, genFeminine, caseInstrumental, numSingle, L"тысячей"
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genMasculine, casePrepositional, numSingle, L"о папе"
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genFeminine, casePrepositional, numSingle, L"о маме, о тысяче, о подводе"
 		},
 
 
 		{
-			wstring(L"ы"), declI, aUnknown, genMasculine, caseNominative, numMultiple
+			wstring(L"ы"), declI, aUnknown, genMasculine, caseNominative, numMultiple, L"старосты"
 		},
 		{
-			wstring(L"ы"), declI, aUnknown, genFeminine, caseNominative, numMultiple
+			wstring(L"ы"), declI, aUnknown, genFeminine, caseNominative, numMultiple, L"подводы"
 		},
 		{
-			wstring(), declI, aUnknown, genMasculine, caseGenetive, numMultiple
+			wstring(L"и"), declI, aUnknown, genMasculine, caseNominative, numMultiple, L"дедушки"
 		},
 		{
-			wstring(), declI, aUnknown, genFeminine, caseGenetive, numMultiple
+			wstring(L"и"), declI, aUnknown, genFeminine, caseNominative, numMultiple, L"кошки"
 		},
 		{
-			wstring(), declI, aAnimated, genMasculine, caseAccusative, numMultiple
+			wstring(), declI, aUnknown, genMasculine, caseGenetive, numMultiple, L""
 		},
 		{
-			wstring(), declI, aAnimated, genFeminine, caseAccusative, numMultiple
+			wstring(), declI, aUnknown, genFeminine, caseGenetive, numMultiple, L""
 		},
 		{
-			wstring(L"ы"), declI, aInanimated, genMasculine, caseAccusative, numMultiple
+			wstring(), declI, aAnimated, genMasculine, caseAccusative, numMultiple, L""
 		},
 		{
-			wstring(L"ы"), declI, aInanimated, genFeminine, caseAccusative, numMultiple
+			wstring(), declI, aAnimated, genFeminine, caseAccusative, numMultiple, L""
 		},
 		{
-			wstring(L"ам"), declI, aUnknown, genMasculine, caseDative, numMultiple
+			wstring(L"ы"), declI, aInanimated, genMasculine, caseAccusative, numMultiple, L""
 		},
 		{
-			wstring(L"ам"), declI, aUnknown, genFeminine, caseDative, numMultiple
+			wstring(L"ы"), declI, aInanimated, genFeminine, caseAccusative, numMultiple, L""
 		},
 		{
-			wstring(L"ами"), declI, aUnknown, genMasculine, caseInstrumental, numMultiple
+			wstring(L"ам"), declI, aUnknown, genMasculine, caseDative, numMultiple, L""
 		},
 		{
-			wstring(L"ами"), declI, aUnknown, genFeminine, caseInstrumental, numMultiple
+			wstring(L"ам"), declI, aUnknown, genFeminine, caseDative, numMultiple, L""
 		},
 		{
-			wstring(L"ах"), declI, aUnknown, genMasculine, casePrepositional, numMultiple
+			wstring(L"ами"), declI, aUnknown, genMasculine, caseInstrumental, numMultiple, L""
 		},
 		{
-			wstring(L"ах"), declI, aUnknown, genFeminine, casePrepositional, numMultiple
+			wstring(L"ами"), declI, aUnknown, genFeminine, caseInstrumental, numMultiple, L""
+		},
+		{
+			wstring(L"ах"), declI, aUnknown, genMasculine, casePrepositional, numMultiple, L""
+		},
+		{
+			wstring(L"ах"), declI, aUnknown, genFeminine, casePrepositional, numMultiple, L""
+		},
+		//-я
+		//Single number
+		{
+			wstring(L"я"), declI, aUnknown, genMasculine, caseNominative, numSingle, L""
+		},
+		{
+			wstring(L"я"), declI, aUnknown, genFeminine, caseNominative, numSingle, L""
+		},
+		{
+			wstring(L"и"), declI, aUnknown, genMasculine, caseGenetive, numSingle, L""
+		},
+		{
+			wstring(L"и"), declI, aUnknown, genFeminine, caseGenetive, numSingle, L""
+		},
+		{
+			wstring(L"ю"), declI, aUnknown, genMasculine, caseAccusative, numSingle, L""
+		},
+		{
+			wstring(L"ю"), declI, aUnknown, genFeminine, caseAccusative, numSingle, L""
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genMasculine, caseDative, numSingle, L""
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genFeminine, caseDative, numSingle, L""
+		},
+		{
+			wstring(L"ёй"), declI, aUnknown, genUnknown, caseInstrumental, numSingle, L""
+		},
+		{
+			wstring(L"ей"), declI, aUnknown, genUnknown, caseInstrumental, numSingle, L""
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genMasculine, casePrepositional, numSingle, L""
+		},
+		{
+			wstring(L"е"), declI, aUnknown, genFeminine, casePrepositional, numSingle, L""
+		},
+		//Multiple number
+		{
+			wstring(L"и"), declI, aUnknown, genMasculine, caseNominative, numMultiple, L""
+		},
+		{
+			wstring(L"и"), declI, aUnknown, genFeminine, caseNominative, numMultiple, L""
+		},
+		{
+			wstring(L"ь"), declI, aUnknown, genUnknown, caseGenetive, numMultiple, L""
+		},
+		{
+			wstring(L"ей"), declI, aUnknown, genUnknown, caseGenetive, numMultiple, L""
+		},
+		{
+			wstring(L"ей"), declI, aAnimated, genMasculine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"ь"), declI, aAnimated, genMasculine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"ей"), declI, aAnimated, genMasculine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"ь"), declI, aAnimated, genFeminine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"и"), declI, aInanimated, genMasculine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"и"), declI, aInanimated, genFeminine, caseAccusative, numMultiple, L""
+		},
+		{
+			wstring(L"ям"), declI, aUnknown, genMasculine, caseDative, numMultiple, L""
+		},
+		{
+			wstring(L"ям"), declI, aUnknown, genFeminine, caseDative, numMultiple, L""
+		},
+		{
+			wstring(L"ями"), declI, aUnknown, genMasculine, caseInstrumental, numMultiple, L""
+		},
+		{
+			wstring(L"ями"), declI, aUnknown, genFeminine, caseInstrumental, numMultiple, L""
+		},
+		{
+			wstring(L"ях"), declI, aUnknown, genMasculine, casePrepositional, numMultiple, L""
+		},
+		{
+			wstring(L"ях"), declI, aUnknown, genFeminine, casePrepositional, numMultiple, L""
 		},
 		//Declension II
 		{
-			wstring(), declI, aUnknown, genMasculine, caseNominative, numSingle
+			wstring(), declI, aUnknown, genMasculine, caseNominative, numSingle, L""
 		},
 		{
-			wstring(L"о"), declI, aInanimated, genNeuther, caseNominative, numSingle
+			wstring(L"о"), declI, aInanimated, genNeuther, caseNominative, numSingle, L""
 		},
 		{
-			wstring(L"е"), declI, aInanimated, genNeuther, caseNominative, numSingle
+			wstring(L"е"), declI, aInanimated, genNeuther, caseNominative, numSingle, L""
 		},
 
 		//Declension various
 		{
-			wstring(L"я"), declVar, aInanimated, genNeuther, caseNominative, numSingle
+			wstring(L"я"), declVar, aInanimated, genNeuther, caseNominative, numSingle, L""
 		},
 		{
-			wstring(L"и"), declVar, aInanimated, genNeuther, caseGenetive, numSingle
+			wstring(L"и"), declVar, aInanimated, genNeuther, caseGenetive, numSingle, L""
 		},
 		{
-			wstring(L"я"), declVar, aInanimated, genNeuther, caseAccusative, numSingle
+			wstring(L"я"), declVar, aInanimated, genNeuther, caseAccusative, numSingle, L""
 		},
 		{
-			wstring(L"и"), declVar, aInanimated, genNeuther, caseDative, numSingle
+			wstring(L"и"), declVar, aInanimated, genNeuther, caseDative, numSingle, L""
 		},
 		{
-			wstring(L"ем"), declVar, aInanimated, genNeuther, caseInstrumental, numSingle
+			wstring(L"ем"), declVar, aInanimated, genNeuther, caseInstrumental, numSingle, L""
 		},
 		{
-			wstring(L"и"), declVar, aInanimated, genNeuther, casePrepositional, numSingle
+			wstring(L"и"), declVar, aInanimated, genNeuther, casePrepositional, numSingle, L""
 		},
 
 
 		{
-			wstring(L"а"), declVar, aInanimated, genNeuther, caseNominative, numMultiple
+			wstring(L"а"), declVar, aInanimated, genNeuther, caseNominative, numMultiple, L""
 		},
 		{
-			wstring(L"ён"), declVar, aInanimated, genNeuther, caseGenetive, numMultiple
+			wstring(L"ён"), declVar, aInanimated, genNeuther, caseGenetive, numMultiple, L""
 		},
 		{
-			wstring(L"а"), declVar, aInanimated, genNeuther, caseAccusative, numMultiple
+			wstring(L"а"), declVar, aInanimated, genNeuther, caseAccusative, numMultiple, L""
 		},
 		{
-			wstring(L"ам"), declVar, aInanimated, genNeuther, caseDative, numMultiple
+			wstring(L"ам"), declVar, aInanimated, genNeuther, caseDative, numMultiple, L""
 		},
 		{
-			wstring(L"ами"), declVar, aInanimated, genNeuther, caseInstrumental, numMultiple
+			wstring(L"ами"), declVar, aInanimated, genNeuther, caseInstrumental, numMultiple, L""
 		},
 		{
-			wstring(L"ах"), declVar, aInanimated, genNeuther, casePrepositional, numMultiple
+			wstring(L"ах"), declVar, aInanimated, genNeuther, casePrepositional, numMultiple, L""
 		}
 };
 

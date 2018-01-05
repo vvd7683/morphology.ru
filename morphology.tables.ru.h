@@ -78,6 +78,7 @@ namespace MorphologyRU {
 		Gender _gender;
 		Case _case;
 		Number _number;
+		wstring _example;
 	} NounReflection;
 	class Noun
 	{
